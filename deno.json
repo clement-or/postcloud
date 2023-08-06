@@ -1,0 +1,12 @@
+{
+  "tasks": {
+    "dev": "deno run --watch --allow-env --allow-net --allow-read --allow-write ./server/dev.ts ",
+    "prod": "deno run --watch --allow-env --allow-net --allow-read --allow-write ./server/main.ts ",
+    "test": "deno --allow-env --allow-net --allow-read --allow-write test"
+  },
+  "imports": {
+    "oak": "https://deno.land/x/oak@v12.6.0/mod.ts",
+    "$std": "https://deno.land/std@0.197.0",
+    "vite": "npm:vite@4.3.9"
+  }
+}
