@@ -1,8 +1,10 @@
 {
   "tasks": {
-    "dev": "deno run --watch --allow-env --allow-net --allow-read --allow-write ./server/dev.ts ",
+    "dev": "deno task dev:client & deno task dev:server",
+    "dev:client": "vite build client --watch --ssrManifest --outDir ../server/view",
+    "dev:server": "deno run --watch --allow-all server/dev.ts",
     "prod": "deno run --watch --allow-env --allow-net --allow-read --allow-write ./server/main.ts ",
-    "test": "deno --allow-env --allow-net --allow-read --allow-write test"
+    "test": "deno --allow-all test"
   },
   "imports": {
     "oak": "https://deno.land/x/oak@v12.6.0/mod.ts",

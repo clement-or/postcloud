@@ -1,7 +1,9 @@
 import { Application, Router, Status } from "oak";
 import { proxy } from "https://deno.land/x/oak_http_proxy@2.1.0/mod.ts";
 import { createServer } from "vite";
+
 const port = 8000;
+const PUBLIC_ROOT = `${Deno.cwd()}/server/view`
 
 const app = new Application();
 const router = new Router();
@@ -35,8 +37,17 @@ app.use(async (ctx, next) => {
 });
 
 // --- Routes
-router.get("/", (ctx) => {
-  ctx.response.body = "Hello World!";
+
+// DAV
+router.get("/dav/:subpath*", ctx => {
+  ctx.response.body = `Tried accessing DAV resource /${ctx.params.subpath ? ctx.params.subpath : ""}`
+})
+
+router.get("/:path*", (ctx, next) => {
+  ctx.state = {
+    yee: "Haw"
+  }
+	ctx.response.body = `Accessing view /${ctx.params.path ? ctx.params.path : ""}`
 });
 
 router.get("/error", (_ctx) => {
@@ -50,9 +61,8 @@ app.use(router.allowedMethods());
 
 // Serve static content
 app.use(async (ctx, next) => {
-  const root = `${Deno.cwd()}/client`;
   try {
-    await ctx.send({ root });
+    await ctx.send({ root: PUBLIC_ROOT });
   } catch {
     next();
   }
