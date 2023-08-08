@@ -28,6 +28,10 @@ transactions that will directly be stored in your database.
 - Can run on a local filesystem
 - Server is frontend agnostic, and frontend can easily be swapped/ditched if necessary
 - Server will serve frontend views when HTTP requests are issued if they exist
+- Everything is an app, so for example, event the frontend layout is an app
+  - Default layout uses the default navbar app and displays the RouterView
+  - Layout can be extended, modified etc.
+  - For example custom navbar, but also custom global layout
 
 ## Idea dump
 
