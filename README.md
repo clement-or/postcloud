@@ -1,7 +1,7 @@
 # Postcloud : Your Everything
 
 Postcloud aims to be an all-in-one platform for self-hosted cloud. 
-Powered by cutting-edge technology like Deno and Svelte, is aims to be fast, easy to use and easy to develop for.
+Powered by Rust and HTMX, is aims to be fast, easy to use and easy to develop for.
 Postcloud allows you to host your files, calendar, e-mail, contacts in a self-hosted cloud.
 But that's only the tip of the iceberg. Postcloud provides an easy way to develop front-end apps that can be easily
 added, removed and configured from a Postcloud installation.
